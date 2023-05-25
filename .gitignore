@@ -8,8 +8,6 @@
 *.so
 *.dylib
 
-*.sum
-
 # Test binary, built with `go test -c`
 *.test
 
@@ -21,3 +19,6 @@
 
 # Go workspace file
 go.work
+
+# Go has file
+go.sum
