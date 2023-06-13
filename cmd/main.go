@@ -16,8 +16,14 @@ import (
 
 func main() {
 	ctx := context.Background()
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		os.Exit(1)
+	}
+
 	kubeconfig := filepath.Join(
-		os.Getenv("HOME"), ".kube", "config",
+		homeDir, ".kube", "config",
 	)
 	namespace := "default"
 	k8sClient, err := getClient(kubeconfig)
